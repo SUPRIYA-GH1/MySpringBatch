@@ -1,4 +1,4 @@
-package com.supriya.miniproject.security;
+package com.swa.miniproject.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
