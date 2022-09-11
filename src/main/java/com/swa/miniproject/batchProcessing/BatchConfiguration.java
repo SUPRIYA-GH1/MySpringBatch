@@ -1,15 +1,12 @@
-package com.supriya.miniproject.batchProcessing;
+package com.swa.miniproject.batchProcessing;
 
-import com.supriya.miniproject.entity.Student;
+import com.swa.miniproject.entity.Student;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
-import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
@@ -65,7 +62,7 @@ public class BatchConfiguration {
     public JdbcBatchItemWriter<Student> writerToDB(){
         JdbcBatchItemWriter<Student> jbiw = new JdbcBatchItemWriter<>();
         jbiw.setDataSource(dataSource);
-        jbiw.setSql("INSERT INTO Student (first_name, last_name,gpa,dob) values(:firstName,:lastName,:gpa,:dob)");
+        jbiw.setSql("INSERT INTO student (first_name, last_name,gpa,dob) values(:firstName,:lastName,:gpa,:dob)");
         jbiw.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
         return jbiw;
     }

@@ -1,4 +1,4 @@
-package com.supriya.miniproject.security;
+package com.swa.miniproject.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

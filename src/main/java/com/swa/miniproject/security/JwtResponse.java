@@ -1,4 +1,4 @@
-package com.supriya.miniproject.security;
+package com.swa.miniproject.security;
 
 import java.io.Serializable;
 
