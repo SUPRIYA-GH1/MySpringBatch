@@ -1,27 +1,25 @@
 version: "3.8"
 services:
+  springboot-servicename:
+    image: springbooot-app
+    build: .
+    restart: always
+    ports:
+      - 8090:8080
+    #    environment:
+    #      MYSQL_HOST: mysqldb
+    #      MYSQL_USER: root
+    #      MYSQL_PASSWORD: root
+    #      MYSQL_PORT: 3306
+    depends_on:
+      - mysqldb
+
   mysqldb:
+    container_name: mysqldb
     image: "mysql"
     #    restart: always
     ports:
       - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
       MYSQL_DATABASE: csv_db
-
-  springboot-servicename:
-    image: springbooot-app
-    restart: always
-    ports:
-      - 8090:8080
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/csv_db?autoConnect=true&useSSL=false
-      SPRING_DATASOURCE_USER: root
-      SPRING_DATASOURCE_PASSWORD: root
-      MYSQL_PORT: 3306
-    build:
-      context: "./"
-      dockerfile: "Dockerfile"
-    depends_on:
-      - mysqldb
